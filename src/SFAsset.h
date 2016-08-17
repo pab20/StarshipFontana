@@ -21,7 +21,7 @@ using namespace std;
  * enum to mark the type of the SFAsset.  If we add more asset types then
  * the subclassing strategy becomes a better option.
  */
-enum SFASSETTYPE {SFASSET_DEAD, SFASSET_PLAYER, SFASSET_PROJECTILE, SFASSET_ALIEN, SFASSET_COIN};
+enum SFASSETTYPE {SFASSET_DEAD, SFASSET_PLAYER, SFASSET_PROJECTILE, SFASSET_ALIEN, SFASSET_COIN, SFASSET_WALL};
 
 class SFAsset {
 public:
@@ -32,10 +32,15 @@ public:
   virtual void      SetPosition(Point2 &);
   virtual Point2    GetPosition();
   virtual SFAssetId GetId();
+  virtual int       HP();
+  virtual int       Points();
+  virtual void      SetHP(int quantity);
+  virtual void      SetPoints(int quantity);
   virtual void      OnRender();
   virtual void      GoEast();
   virtual void      GoWest();
   virtual void      GoNorth();
+  virtual void      GoSouth();
   virtual void      SetNotAlive();
   virtual bool      IsAlive();
   virtual void      HandleCollision();
@@ -47,6 +52,8 @@ private:
   // but, because we need to call SDL_FreeSurface on it, we can't.
   // (or we could use a std::shared_ptr with a custom Deleter, but
   // that's a little too much right now)
+  int                         iPoints;
+  int                         objHP;
   SDL_Texture               * sprite;
   shared_ptr<SFBoundingBox>   bbox;
   SFASSETTYPE                 type;

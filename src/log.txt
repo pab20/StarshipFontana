@@ -1,0 +1,20 @@
+Main.o: In function `PushUpdateEvent(unsigned int, void*)':
+Main.cpp:(.text+0x1a8): undefined reference to `SDL_PushEvent'
+Main.o: In function `InitGraphics()':
+Main.cpp:(.text+0x1ce): undefined reference to `SDL_Init'
+Main.cpp:(.text+0x1da): undefined reference to `SDL_GetError'
+Main.cpp:(.text+0x24b): undefined reference to `SDL_CreateWindow'
+Main.cpp:(.text+0x263): undefined reference to `SDL_GetError'
+Main.cpp:(.text+0x2c8): undefined reference to `SDL_CreateRenderer'
+Main.cpp:(.text+0x2e0): undefined reference to `SDL_GetError'
+Main.cpp:(.text+0x350): undefined reference to `SDL_SetRenderDrawColor'
+Main.o: In function `main':
+Main.cpp:(.text+0x3c9): undefined reference to `SFApp::SFApp(std::shared_ptr<SFWindow>)'
+Main.cpp:(.text+0x41e): undefined reference to `SDL_AddTimer'
+Main.cpp:(.text+0x432): undefined reference to `SFApp::OnExecute()'
+Main.o: In function `void __gnu_cxx::new_allocator<SFWindow>::construct<SFWindow, SDL_Window*&, SDL_Renderer*&>(SFWindow*, SDL_Window*&, SDL_Renderer*&)':
+Main.cpp:(.text._ZN9__gnu_cxx13new_allocatorI8SFWindowE9constructIS1_JRP10SDL_WindowRP12SDL_RendererEEEvPT_DpOT0_[_ZN9__gnu_cxx13new_allocatorI8SFWindowE9constructIS1_JRP10SDL_WindowRP12SDL_RendererEEEvPT_DpOT0_]+0x60): undefined reference to `SFWindow::SFWindow(SDL_Window*, SDL_Renderer*)'
+collect2: error: ld returned 1 exit status
+[nigelab@localhost StarshipFontana]$ StarshipFontana 2&>1>log.txt
+bash: syntax error near unexpected token `1'
+
